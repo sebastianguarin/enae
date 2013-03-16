@@ -1,0 +1,20 @@
+!!! 5
+%html{:lang => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title Enae
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .container
+      - flash.each do |key, value|
+        .alert{:class => "alert-#{key}"}  #{value}
+      = render :partial => "shared/header_navbar" 
+      = render :partial => "shared/navbar"
+      .row
+        .span12
+          = yield
+      %footer
+      = debug(params) if Rails.env.development? 
+

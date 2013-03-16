@@ -1,0 +1,12 @@
+development:
+  app_id: 12345
+  secret_key: 12345
+  url: 'localhost'
+test:
+  app_id: 12345
+  secret_key: 12345
+  url: 'localhost'
+production:
+  app_id: 12345
+  secret_key: 12345
+  url: 'enae'

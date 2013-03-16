@@ -1,0 +1,9 @@
+-if current_user && current_user.rol.present?
+  %li 
+    =link_to current_user.rol.full_name
+  %li.divider-vertical 
+  %li
+    = link_to 'Logout' , '#'
+
+-else
+  = link_to image_tag("facebook/authlogic_fb_connect.gif"), @auth.url_for_oauth_code(:permissions=>"publish_stream,offline_access,email")

@@ -1,0 +1,8 @@
+= form_for student, :html => { :multipart => true } do |form|
+  = form.label 'Nombres'
+  = form.text_field :name
+  = form.label 'Apellidos'
+  = form.text_field :last_names
+  = form.label "Grado"
+  = form.select :grade_id, options_for_select(Course.all.collect{ |s| [s.name, s.id] })
+  = submit_tag 'Grabar'
