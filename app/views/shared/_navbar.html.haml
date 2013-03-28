@@ -1,4 +1,7 @@
 %ul
-  %li= link_to "Mis Notas", "#"
-  %li= link_to "Mis Tareas", "#"
-  %li= link_to "Mis Materias", "#"
+  - if current_user && current_user.rol
+    = render :partial => "#{current_user.rol.class.name.tableize}/navbar"
+  %li= link_to "Materias", "#"
+  %li= link_to "Profesores", "#"
+  %li= link_to "Eventos", "#"
+

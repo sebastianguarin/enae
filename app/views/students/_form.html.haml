@@ -4,5 +4,5 @@
   = form.label 'Apellidos'
   = form.text_field :last_names
   = form.label "Grado"
-  = form.select :grade_id, options_for_select(Course.all.collect{ |s| [s.name, s.id] })
+  = form.select :course_id, options_for_select(Course.all.collect{ |s| [s.name, s.id] })
   = submit_tag 'Grabar'

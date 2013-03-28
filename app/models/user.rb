@@ -7,12 +7,8 @@ class User < ActiveRecord::Base
   before_save :create_remember_token
   
   def self.find_fb_user(fb_user)
-    User.find(:first, :conditions => {:facebook_id => fb_user['id'], :email => fb_user['email']})
+    User.find(:first, :conditions => ['facebook_id = ? or email = ?',539635387,'asd'])
   end 
-
-  def full_name
-    self.name + self.last_names 
-  end
 
   private
 

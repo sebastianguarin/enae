@@ -11,13 +11,13 @@ class FacebookController < ApplicationController
         user = Facebook.create_user(fb_user, token)
       end
       sign_in(user)
-      if user.rol_type.blank? || user.rol_id.blank?
-        redirect_to new_student_path(:first => fb_user['first_name'], :last => fb_user['last_name'])
+      if user.rol.course_id.blank?
+        redirect_to edit_student_path(user)
         return false
-      end 
+      end    
     else
       flash.now[:notice] = "Facebook error try again" 
     end   
-    render :template => "home/index" 
+    redirect_to root_path  
   end
 end
