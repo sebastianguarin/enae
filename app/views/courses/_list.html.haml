@@ -1,0 +1,8 @@
+-if courses.present?
+  %table
+    %th curso 
+    -courses.each do |course|
+      %tr
+        %td= course.name
+-else
+  No existen cursos        

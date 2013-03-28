@@ -8,7 +8,12 @@ class ApplicationController < ActionController::Base
     @auth = Koala::Facebook::OAuth.new(574060449271274, "ee2514bc6250a4d91a27fba7c967ba88","http://localhost:3000/callback")
   end
 
-  def logout
-    
+  def admin_required
+    redirect_to root unless current_user.class.name == "Admin"
+  end
+
+  def teacher_required
+    redirect_to root unless current_user.class.name == "Teacher"
+    @teacher = current_user.rol
   end
 end

@@ -1,0 +1,3 @@
+.panel
+  = render :partial => 'form', :locals =>{:course => @course}
+  = render :partial => 'list', :locals =>{:courses => Course.all}

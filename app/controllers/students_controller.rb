@@ -32,4 +32,8 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
   end
+
+  def index
+    @signature = params[:signature_id]
+  end
 end
