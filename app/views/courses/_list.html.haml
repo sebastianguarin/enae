@@ -4,5 +4,7 @@
     -courses.each do |course|
       %tr
         %td= course.name
+        %td= link_to "asignarutas", course_signatures_path(course)
+          
 -else
   No existen cursos        

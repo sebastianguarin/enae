@@ -1,0 +1,9 @@
+-if asignatures.present?
+  %table
+    %th Asignaturas
+    -asignatures.each do |asignature|
+      %tr
+        %td= asignature.name
+          
+-else
+  No existen Asignaturas        

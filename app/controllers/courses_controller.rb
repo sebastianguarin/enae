@@ -1,7 +1,8 @@
 class CoursesController < ApplicationController
 
   def index
-    @courses = Course.all
+    @course = Course.new()
+    render :new
   end
 
   def new
@@ -11,7 +12,9 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(params[:course])
     if @course.save
-    
+      flash[:notice] = "Curso #{@course.name} creado"
+      @course = Course.new()
+    else
     end
     render :new
   end
@@ -21,7 +24,13 @@ class CoursesController < ApplicationController
   end
 
   def update
-    render :index
+    @course = Course.find(params[:id])
+    if @course.update_attributes(params[:course])
+      flash[:notice] = "Curso #{@course.name} actualizado"
+    else
+
+    end
+    render :new
   end
 
   def destroy

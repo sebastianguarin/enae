@@ -8,10 +8,10 @@
     = csrf_meta_tags
   %body
     .container
-      - flash.each do |key, value|
-        .alert{:class => "alert-#{key}"}  #{value}
       = render :partial => "shared/header_navbar" 
-      = render :partial => "shared/navbar" 
+      = render :partial => "shared/navbar"
+      - flash.each do |key, value|
+        .alert{:class => "alert-#{key}"}  #{value} 
       .row
         .span12
           = yield
